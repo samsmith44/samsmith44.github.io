@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+                background-color: #ffffff;
+                margin: 0;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <script src="http://threejsplaygnd.brangerbriz.net/js/three.min.js"></script>
+        <script src="http://threejsplaygnd.brangerbriz.net/js/Detector.js"></script>
+        <script>
+
+            if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+            
+            var camera, scene, renderer;
+            var geometry, material, mesh;
+
+            function setup() {
+
+                var W = window.innerWidth, H = window.innerHeight;
+                renderer = new THREE.WebGLRenderer();
+                renderer.setSize( W, H );
+                document.body.appendChild( renderer.domElement );
+
+                camera = new THREE.PerspectiveCamera( 40, W/H, 1, 10000 );
+                camera.position.z = 500;
+
+                scene = new THREE.Scene();
+                
+                
+                // paste your code from the geometryGUI here
+
+map = THREE.ImageUtils.loadTexture('../texturez/proxy.php?url=https://images.curiator.com/image/upload/f_auto,q_auto/t_x/art/gc4b8z9qrt9goyvpolfy.jpg');
+geometry = new THREE.CylinderGeometry(95.9, 1, 225.87, 50, 50, false);
+material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xdcdcdc, map: map});
+mesh = new THREE.Mesh(geometry, material);
+map.wrapS = map.wrapT = THREE.RepeatWrapping;
+map.repeat.set( 1, 1 );
+mesh.rotation.y = 3.2;
+scene.add(mesh);
+
+bg = document.body.style;
+bg.background = '#f7ecba';
+
+                
+                wgeometry = new THREE.PlaneGeometry( 1000, 1000, 100, 100 );
+                wmaterial = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true, wireframeLinewidth: 1 } );
+                wireplane = new THREE.Mesh( wgeometry, wmaterial );
+                wireplane.rotation.x = - Math.PI / 2.2;
+                scene.add( wireplane );
+                geometry = new THREE.Geometry();
+                for ( i = 1; i < 20000; i ++ ) {
+                    var vertex = new THREE.Vector3();
+                    vertex.x = 1000 * Math.random() - 500;
+                    vertex.y = 1000 * Math.random() - 500;
+                    vertex.z = 1000 * Math.random() - 500;
+                    geometry.vertices.push( vertex );
+                }
+                material = new THREE.ParticleBasicMaterial( { size: 3, sizeAttenuation: false, transparent: true } );
+                material.color.setHex( 0xff00ff );
+                particles = new THREE.ParticleSystem( geometry, material );
+                particles.sortParticles = true;
+                scene.add( particles );
+
+
+            }
+
+            function draw() {               particles.rotation.y = Date.now() * 0.0002;
+                                            mesh.position.y = Math.sin( Date.now() * 0.002 ) * 40;
+                             mesh.rotation.x = Date.now() * 0;  
+                mesh.rotation.y = Date.now() * 0.0005;  
+                mesh.rotation.z = Date.now() * 0;
+
+
+
+
+                requestAnimationFrame( draw );
+                
+                // experiment with code from the snippets menu here
+
+                renderer.render( scene, camera );
+
+            }
+
+            setup();
+            draw();
+
+        </script>
+        
+    </body>
+</html>
