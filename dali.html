@@ -72,7 +72,11 @@ bg.background = '#f7ecba';
 			}
 
 			function draw() {				particles.rotation.y = Date.now() * 0.0002;
-							 				mesh.position.y = Math.sin( Date.now() * 0.002 ) * 50;
+							 				mesh.position.y = Math.sin( Date.now() * 0.002 ) * 40;
+							 mesh.rotation.x = Date.now() * 0;	
+				mesh.rotation.y = Date.now() * 0.0005;	
+				mesh.rotation.z = Date.now() * 0;
+
 
 
 
@@ -91,6 +95,3 @@ bg.background = '#f7ecba';
 		
 	</body>
 </html>
-
-
-http://threejsplaygnd.brangerbriz.net/s/?id=6743
