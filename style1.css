@@ -1,0 +1,96 @@
+* {
+	margin:0;
+	padding: 0;
+}
+
+body{
+	background-color: #f9d5e5;	
+	
+
+}
+	
+#name {
+	color: #912093;
+	margin-left: 30px;
+	padding:20px;
+	font-family: 'Poiret One', cursive;
+	
+
+}
+
+ul {
+	float:right;
+}
+
+ul li {
+	background-color: #adffef;
+	display: inline-block;
+	padding:20px;
+	border:4px solid #ed83fc;
+	font-family: 'Poiret One', cursive;
+
+
+}
+
+.sketch {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border:none;
+}
+
+#vapor {
+	width:400px;
+	border:4px solid #ed83fc;
+	display: inline-block;
+
+
+}
+
+#vapor1{
+	display: inline-block;
+	margin: auto;
+}
+
+
+p{
+	font-family: 'Poiret One', cursive;
+
+}
+
+#heading{
+	font-family: 'Poiret One', cursive;
+	padding:10px;
+	color: #912093;
+
+
+}
+
+#heading2{
+	font-family: 'Poiret One', cursive;
+	padding:10px;
+	color: #912093;
+
+}
+
+#statement{		
+	padding:10px;
+	color: #912093;
+
+}
+
+div{
+ margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+iframe{
+	display:block;
+	width: 760px;
+    height: 515px;
+    margin: 0 auto;
+    border:4px solid #ed83fc;
+}
