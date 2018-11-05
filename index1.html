@@ -1,22 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>statement</title>
-		<link rel="stylesheet" type="text/css" href="style1.css">
-		<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #ffffff;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<script src="http://threejsplaygnd.brangerbriz.net/js/three.min.js"></script>
+		<script src="http://threejsplaygnd.brangerbriz.net/js/Detector.js"></script>
+		<script>
 
-</head>
-<body>
-	<br>
-	<h1 id="heading">Art 74 ePortfolio</h1>
-	<h2 id="heading2">Samantha Smith</h2>
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+			
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( W, H );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 50, W/H, 1, 10000 );
+				camera.position.z = 500;
+
+				scene = new THREE.Scene();
+				
+				
+				// paste your code from the geometryGUI here
+				geometry = new THREE.CubeGeometry(200, 200, 200);
+material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
 
 
-	<p id="statement"><br>
-	Here is the body of work I created throughout the semester. With an emphasis on social media and the complexities of the digital realm, I was able to create exciting works of art that are intricate in meaning while maintaining visually aesthetic.
-	
+			}
 
+			function draw() {
+				mesh.rotation.x = Date.now() * 0.0005;	
+				mesh.rotation.y = Date.now() * 0.0002;	
+mesh.rotation.z = Date.now() * 0.001;
 
+				requestAnimationFrame( draw );
+				
+				// experiment with code from the snippets menu here
 
-</body>
+				renderer.render( scene, camera );
+
+			}
+
+			setup();
+			draw();
+
+		</script>
+		
+	</body>
 </html>
