@@ -1,9 +1,3 @@
-/*
- * @name Flocking
- * @description Demonstration of <a href="http://www.red3d.com/cwr/">Craig Reynolds' "Flocking" behavior</a>.<br>
- * (Rules: Cohesion, Separation, Alignment.)<br>
- * From <a href="http://natureofcode.com">natureofcode.com</a>.
- */
 var boids = [];
 
 function setup() {
@@ -16,7 +10,7 @@ function setup() {
 }
 
 function draw() {
-  background(51);
+  background(255,255,153);
   // Run all the boids
   for (var i = 0; i < boids.length; i++) {
     boids[i].run(boids);
@@ -88,8 +82,7 @@ Boid.prototype.seek = function(target) {
 
 // Draw boid as a circle
 Boid.prototype.render = function() {
-  fill(127, 127);
-  stroke(200);
+  fill( random(255), random(255), random(255), random(255));
   ellipse(this.position.x, this.position.y, 16, 16);
 }
 
